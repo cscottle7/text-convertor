@@ -1,0 +1,73 @@
+# Design System Profile: Text Convertor
+
+This document provides a structured, machine-readable guide to the visual and UX standards for the 'Text Convertor' project. It is derived from the "Technology & Product Strategy Memorandum" and the V1 MVP Svelte component implementation.
+
+## 1. Design Philosophy
+
+The core design philosophy is one of **extreme minimalism and focus**. The user interface must be clean, intuitive, and designed to remove all friction from the user's workflow. The design is **mobile-first**, ensuring a seamless and accessible experience on any device.
+
+## 2. Layout System
+
+The application uses a responsive layout that adapts to the viewport width.
+
+* **Mobile (Default, < 768px):** A single-column, vertical layout where the "Input" area is stacked above the "Output" area.
+* **Desktop (> 768px):** A two-column, side-by-side layout that provides a real-time conversion view, with the "Input" on the left and "Output" on the right.
+
+## 3. Colour Palette
+
+The palette is restrained to support the minimalist and utilitarian aesthetic.
+
+| Element          | Property           | Value    |
+| :--------------- | :----------------- | :------- |
+| `textarea`       | `border-color`     | `#ccc`   |
+| `.output-area`   | `background-color` | `#f8f9fa` |
+| `.output-area`   | `color`            | `#333`   |
+| `.btn-primary`   | `background-color` | `#007bff` |
+| `.btn-primary`   | `color`            | `white`  |
+| `.btn-secondary` | `background-color` | `#6c757d` |
+| `.btn-secondary` | `color`            | `white`  |
+| `.copy-feedback` | `color`            | `#28a745` |
+
+## 4. Typography
+
+Typography is standardized for clarity and readability.
+
+* **Primary Font Family:** `monospace`
+* **Base Font Size:** `14px`
+
+## 5. Component Styles
+
+### `textarea` (shared style `.text-area`)
+
+* **Border:** `1px solid #ccc`
+* **Border Radius:** `8px`
+* **Padding:** `0.75rem`
+* **Sizing:** `width: 100%`, `height: 100%`, `box-sizing: border-box`
+* **Resize:** `none` (disabled)
+
+### Buttons (shared style `.btn`)
+
+* **Padding:** `0.5rem 1rem`
+* **Border:** `none`
+* **Border Radius:** `6px`
+* **Font Weight:** `500`
+* **Cursor:** `pointer`
+* **Transition:** `background-color 0.2s ease`
+* **Primary (`.btn-primary`):** A solid blue background (`#007bff`) with white text.
+* **Secondary (`.btn-secondary`):** A solid grey background (`#6c757d`) with white text.
+
+### Feedback Text (`.copy-feedback`)
+
+* **Colour:** Green (`#28a745`)
+* **Font Weight:** `bold`
+
+## 6. Microcopy
+
+The following text strings are to be used exactly as specified to ensure a clear and consistent user experience.
+
+* **Page Title:** `Text Convertor | Clean Up Your Text Instantly`
+* **Input Placeholder:** `Paste your Markdown, notes, or AI-generated text here...`
+* **Output Placeholder:** `Your clean, plain text will appear here.`
+* **Primary Button Label:** `Copy Text`
+* **Secondary Button Label:** `Clear`
+* **Copy Success Feedback:** `Copied!`
