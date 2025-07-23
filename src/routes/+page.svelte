@@ -1,5 +1,5 @@
 <script>
-	import { TextConverter } from '$lib';
+	import TextConverter from '$lib/components/TextConverter.svelte';
 </script>
 
 <svelte:head>
@@ -26,11 +26,16 @@
 	<link rel="canonical" href="https://textconvertor.app" />
 </svelte:head>
 
+<header class="header">
+	<div class="header-content">
+		<h1 class="title">Text Converter</h1>
+	</div>
+</header>
+
 <main class="main">
-	<header class="header">
-		<h1 class="title">Text Convertor</h1>
-		<p class="subtitle">Clean Up Your Text Instantly</p>
-	</header>
+	<div class="subtitle-section">
+		<p class="subtitle">Convert text between multiple formats instantly</p>
+	</div>
 
 	<section class="converter-section">
 		<div class="converter-container">
@@ -38,11 +43,6 @@
 		</div>
 	</section>
 
-	<footer class="footer">
-		<p class="footer-text">
-			Built with <a href="https://kit.svelte.dev" class="footer-link">SvelteKit</a>
-		</p>
-	</footer>
 </main>
 
 <style>
@@ -60,9 +60,34 @@
 		background-color: #fafafa;
 	}
 
+	/* Full-width Header */
+	.header {
+		width: 100%;
+		background: #007bff;
+		padding: 0.5rem 0;
+		margin: 0;
+		box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+	}
+
+	.header-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+		text-align: center;
+	}
+
+	.title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin: 0;
+		color: white;
+		letter-spacing: -0.02em;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
+	}
+
 	/* Mobile-First Layout Structure */
 	.main {
-		min-height: 100vh;
+		min-height: calc(100vh - 120px);
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -72,25 +97,25 @@
 		background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 	}
 
-	.header {
+	.subtitle-section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
-		margin-bottom: 1.5rem;
-		padding: 0.5rem 0;
-	}
-
-	.title {
-		font-size: 1.75rem;
-		font-weight: 700;
-		margin: 0 0 0.5rem 0;
-		color: #1a1a1a;
-		letter-spacing: -0.025em;
+		margin-bottom: 0.5rem;
+		padding: 0.25rem 0.25rem 1rem 0.25rem;
+		min-height: 2rem;
 	}
 
 	.subtitle {
-		font-size: 1rem;
-		color: #666;
+		font-size: 0.875rem;
+		color: #4a5568;
 		margin: 0;
 		font-weight: 400;
+		line-height: 1.2;
+		max-width: 600px;
+		margin: 0 auto;
+		font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
 	}
 
 	/* Mobile-First Converter Section - Single Column */
@@ -114,31 +139,6 @@
 		border: 1px solid #e1e5e9;
 	}
 
-	.footer {
-		margin-top: auto;
-		padding: 1rem 0 0.5rem 0;
-		border-top: 1px solid rgba(255, 255, 255, 0.2);
-		text-align: center;
-		background: transparent;
-	}
-
-	.footer-text {
-		font-size: 0.8rem;
-		color: #888;
-		margin: 0;
-		font-weight: 400;
-	}
-
-	.footer-link {
-		color: #0066cc;
-		text-decoration: none;
-		transition: color 0.2s ease;
-	}
-
-	.footer-link:hover {
-		color: #004499;
-		text-decoration: underline;
-	}
 
 	/* Responsive Breakpoints */
 	
@@ -148,12 +148,20 @@
 			padding: 1.25rem;
 		}
 		
+		.header {
+			padding: 0.75rem 0;
+		}
+		
+		.header-content {
+			padding: 0 1.5rem;
+		}
+		
 		.title {
-			font-size: 2rem;
+			font-size: 1.5rem;
 		}
 		
 		.subtitle {
-			font-size: 1.125rem;
+			font-size: 1rem;
 		}
 		
 		.converter-container {
@@ -170,16 +178,19 @@
 		}
 
 		.header {
-			margin-bottom: 2rem;
-			padding: 1rem 0;
+			padding: 0.75rem 0;
+		}
+
+		.header-content {
+			padding: 0 2rem;
 		}
 
 		.title {
-			font-size: 2.5rem;
+			font-size: 1.75rem;
 		}
 
 		.subtitle {
-			font-size: 1.25rem;
+			font-size: 1.125rem;
 		}
 		
 		/* Desktop Two-Column Layout */
@@ -192,13 +203,6 @@
 			/* This will be overridden by the TextConverter component for two-column layout */
 		}
 		
-		.footer {
-			padding: 1.5rem 0 1rem 0;
-		}
-		
-		.footer-text {
-			font-size: 0.875rem;
-		}
 	}
 
 	/* Desktop / Large Tablet Landscape */
@@ -207,12 +211,20 @@
 			padding: 2.5rem;
 		}
 		
+		.header {
+			padding: 0.75rem 0;
+		}
+		
+		.header-content {
+			padding: 0 2.5rem;
+		}
+		
 		.title {
-			font-size: 3rem;
+			font-size: 2rem;
 		}
 		
 		.subtitle {
-			font-size: 1.375rem;
+			font-size: 1.25rem;
 		}
 	}
 

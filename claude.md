@@ -33,19 +33,46 @@ The project's goal is framed using the Jobs-to-be-Done (JTBD) framework to maint
 ## 5. Design & UX Requirements
 The design philosophy is one of extreme minimalism and focus, ensuring a frictionless user experience.
 
-* **Design Philosophy**: The design must be minimalist and mobile-first, acknowledging that while the core workflow may be desktop-based, accessibility across all platforms is key.
+* **Design Philosophy**: The design must be **Utilitarian & Focused** with extreme minimalism and mobile-first approach. The aesthetic should create a mood of "quiet efficiency" with generous white space and clean, minimal layout that removes all friction from the user's workflow.
 * **Layouts**:
     * **Mobile (Default)**: A single-column, vertical layout with the "Input" area above the "Output" area.
     * **Desktop (>768px)**: A two-column, side-by-side layout that provides a real-time conversion view.
+    * **Header Element**: Simple header containing the title ("Text Convertor") and subtitle for improved hierarchy.
+* **Typography Requirements**:
+    * **Primary Font Family**: `monospace` (required for developer readability and design system alignment)
+    * **Base Font Size**: `14px`
+    * **Page Title**: Use prominent heading level (`font-size-lg` or `font-size-xl`)
+    * **Input/Output Fields**: Default body text style (`font-size-md`) with monospace font for code clarity
+    * **Button Labels**: Standard button text style with `font-weight-semibold`
+* **Colour Palette** (Design System Compliance):
+    * **Primary Button** (`#007bff`): Vibrant blue for maximum visual impact on 'Copy Text' button
+    * **Secondary Button** (`#6c757d`): Solid grey background (not outline/ghost) for 'Clear' button
+    * **Textarea Border**: `#ccc`
+    * **Output Area**: Background `#f8f9fa`, text colour `#333`
+    * **Success Feedback**: Green `#28a745` for "Copied!" message
 * **Simplified User Flow**:
     1.  User selects conversion mode (Markdown → Text or Text → Markdown) using a toggle switch.
     2.  User pastes or types content into the "Input" area.
     3.  The "Output" area updates automatically in real-time based on selected mode.
     4.  User clicks 'Copy Text' to copy the result, or 'Clear' to reset the fields.
+* **Component Specifications**:
+    * **Copy Text Button**: `primary` variant with `contained` style for maximum visual emphasis, positioned close to output area
+    * **Clear Button**: `secondary` variant with solid style (not ghost) and reduced visual weight
+    * **User Feedback**: Use `Toast`/`Snackbar` component for non-blocking "Copied!" confirmation
+    * **Error Handling**: `Alert` component with `critical`/`error` status for copy failures
+* **Button Hierarchy**: Significant visual distinction required between primary 'Copy Text' button and secondary 'Clear' button to guide users to the primary action.
+* **Layout Refinements**:
+    * Character counters must be correctly aligned
+    * Increased vertical spacing between text areas and action buttons for better visual separation
 * **Microcopy**:
     * **Page Title**: Text Convertor | Clean Up Your Text Instantly
-    * **Button Labels**: 'Copy Text' and 'Clear'.
-* **Explicit Feedback**: The UI must provide clear, immediate feedback for copy actions (e.g., 'Copied!') and, crucially, display an error message if the copy action fails for any reason.
+    * **Input Placeholder**: "Paste your Markdown, notes, or AI-generated text here..."
+    * **Output Placeholder**: "Your clean, plain text will appear here."
+    * **Button Labels**: 'Copy Text' and 'Clear'
+    * **Copy Success Feedback**: "Copied!"
+* **Rich Text Copy Support**: 
+    * **Markdown → Text Mode**: Copy rich HTML formatting for paste into applications like Google Docs, preserving headings, bold text, lists, etc.
+    * **Text → Markdown Mode**: Copy plain markdown syntax for technical documentation use.
 
 ## 6. Success Metrics & Measurement Plan
 Success will be measured by a single, clear metric that is easy for all stakeholders to understand.

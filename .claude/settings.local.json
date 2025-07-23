@@ -5,7 +5,18 @@
       "Bash(npx sv:*)",
       "Bash(mkdir:*)",
       "Bash(npm install)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(npm run check:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run preview:*)",
+      "Bash(dir build)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(npm run lint)",
+      "Bash(taskkill:*)",
+      "Bash(powershell:*)"
     ],
     "deny": []
   }
